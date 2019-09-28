@@ -275,13 +275,13 @@ class CharTrick extends Trick{
   }
   performTrick(player) {
     /* check the players latest tabled char
-      if it's me, check all previous tabled chars and add bonus if applicable
+      if it's me, check all the tabled chars and add bonus if applicable
       if it's not me, check the last tabled char and add bonus if applicable
     */
     var chars = player.table.characters;
     var last = chars[chars.length -1];
     if(last == this.owner) {
-      for(var i=0; i<chars.length-1; i++)
+      for(var i=0; i<chars.length; i++)
         if(chars[i].name == this.charName){console.log(this.owner.name+" 加持 "+this.charName);
           player.score += this.bonus;
           return;

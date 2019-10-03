@@ -212,7 +212,7 @@ function ConnectToServer(is_reconnect = false) {
     }, 10);
   }
 
-  var s = 'http://localhost:3000';
+  var s = my_server_url;  // 'http://localhost:3000';
   if (document.getElementById('servername2').checked == true) s = g_server_url;
   console.log('server:' + s);
   socket = io(s);

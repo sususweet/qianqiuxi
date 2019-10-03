@@ -82,8 +82,8 @@
             <input type="radio" name="servername" id="servername1" disabled="true">
             <input type="radio" name="servername" id="servername2" checked>
             <!--<input type="radio" name="servername" id="servername3" disabled="true">-->
-            <label for="servername1" data-value="测试用服务器">localhost</label>
-            <label for="servername2" data-value="默认服务器">不要打雷</label>
+            <label for="servername1" data-value="测试用服务器">不要打雷</label>
+            <label for="servername2" data-value="默认服务器">苏酥甜心糕</label>
             <!--<label for="servername3" data-value="不怕打雷" disabled>二号服务器</label>-->
           </div>
         <div id="connect_to_server" style="width:100%; height:6vw; line-height:6vw; background-color: #112211; color:#fff;" onclick='ConnectToServer();'>
@@ -196,30 +196,30 @@
 		</div>
 	</div>
 
-	<div id="updateinfowindow" class="configurator_popup_window">
-		<div style="width: 60%; margin-left: 20%; padding:2vw;
-		            background-color: #281B11; height: 40vw;
-								font-size: 1.5vw;
-								border: 1px #EEE solid;">
-			<div id="updateinfo_content" style="text-align:left;">
-				<div>
-		    （似乎还没有更新信息。）
-				</div>
-			</div>
-			<div style="width:20vw; height:3vw; background-color:#aa917f;
-			            background-color:#566555; margin-top:1vw; margin-left:auto;
-									margin-right:auto; text-align:center;"
-			  onclick="FetchUpdateInfo(0);">
-				查看全部更新记录
-			</div>
-			<div style="width:12vw; height:3vw; background-color:#aa917f;
-			            background-color:#566555; margin-top:1vw; margin-left:auto;
-									margin-right:auto; text-align:center;"
-			  onclick="HideUpdateInfo();">
-				关闭
-			</div>
-		</div>
-	</div>
+<!--	<div id="updateinfowindow" class="configurator_popup_window">-->
+<!--		<div style="width: 60%; margin-left: 20%; padding:2vw;-->
+<!--		            background-color: #281B11; height: 40vw;-->
+<!--								font-size: 1.5vw;-->
+<!--								border: 1px #EEE solid;">-->
+<!--			<div id="updateinfo_content" style="text-align:left;">-->
+<!--				<div>-->
+<!--		    （似乎还没有更新信息。）-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div style="width:20vw; height:3vw; background-color:#aa917f;-->
+<!--			            background-color:#566555; margin-top:1vw; margin-left:auto;-->
+<!--									margin-right:auto; text-align:center;"-->
+<!--			  onclick="FetchUpdateInfo(0);">-->
+<!--				查看全部更新记录-->
+<!--			</div>-->
+<!--			<div style="width:12vw; height:3vw; background-color:#aa917f;-->
+<!--			            background-color:#566555; margin-top:1vw; margin-left:auto;-->
+<!--									margin-right:auto; text-align:center;"-->
+<!--			  onclick="HideUpdateInfo();">-->
+<!--				关闭-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
 
   <div id="opponentfinder" class="configurator_popup_window">
     <div style="width: 60%; margin-left: 20%;
@@ -493,9 +493,10 @@
 </body>
 </html>
 <script type="text/javascript">
-  var g_server_url = 'http://47.75.12.130:3002';
+  var g_server_url = 'https://qianqiuxi.sususweet.ltd';
+  var my_server_url = 'https://quadpixels.github.io';
 </script>
-<script src="http://edgeofmap.com/qqxupd/1000autumns.js"></script>
+<!--<script src="http://edgeofmap.com/qqxupd/1000autumns.js"></script>-->
 
 <script type="text/javascript">
   // GLOBAL VARIABLES!
@@ -600,7 +601,7 @@
 			g_resource_prefix = "";
 	  } else {
 			console.log("Resources will be fetched from remote");
-	    g_resource_prefix = "https://quadpixels.github.io/";
+	    g_resource_prefix = "";
 	  }
 	}
 </script>
@@ -616,6 +617,6 @@
 <script src="versus-client.js"></script>
 <script type="text/javascript">
 
-FetchUpdateInfo(g_version_id);
+// FetchUpdateInfo(g_version_id);
 
 </script>

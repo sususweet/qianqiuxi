@@ -44,7 +44,7 @@
   float: left;
 }
 #hand0>.charcontainer:not(:first-child), #hand1>.charcontainer:not(:first-child){
-  margin-left: calc(var(--card-width)*-0.53);
+  margin-left: calc(var(--card-width)*-0.44);
 }
 #pool>.charcontainer:not(:first-child){
   margin-left: var(--pool-margin);

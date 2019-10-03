@@ -127,9 +127,9 @@ html .appcontainer, .appwrapper{
   left: 2.8%;
   top: calc(50% - var(--card-height)*0.5);
 }
-/*#hand1{*/
-  /*top: calc(1% + var(--card-height)*0.386);*/
-/*}*/
+#hand1{
+  top: calc(1% + var(--card-height)*0.386);
+}
 #repository{
   position: absolute;
   width: var(--card-width);

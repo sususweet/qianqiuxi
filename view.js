@@ -624,11 +624,10 @@ class View {
     maindiv.style.top = (WINH - MAINH)/2;
     maindiv.style.left = (WINW - MAINW)/2;
 
-    CARDW = MAINW *0.75*(1-2*0.028) / (9 * (1 - HAND_CARD_OVERLAP) + 1);
-    var maxCardH = MAINH * 0.88 * 12/23;
+    CARDW = MAINW *0.66*(1-2*0.028) / (9 * (1 - HAND_CARD_OVERLAP) + 1);
+    var maxCardH = MAINH * 0.41 * 12/23;
     CARDH = CARDW / CARD_RATIO;
     if (CARDH > maxCardH) {
-      console.log("MAX")
       CARDH = maxCardH;
       CARDW = CARDH * CARD_RATIO;
     }

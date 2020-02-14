@@ -179,6 +179,7 @@ class Game {
     this.actions = []; // [ [rank, action, param] ]
     g_serial_game += 1;
     this.pack = [1, 2];
+    this.RANDOM_SP = "randomspoff";
   }
 
   Setup() { // 两个玩家该gamesetup()
@@ -206,6 +207,14 @@ class Game {
       this.players[0].emit('Info_SetPack', this.pack);
     if (this.players[1] != undefined)
       this.players[1].emit('Info_SetPack', this.pack);
+  }
+
+  SetRandomSp(randomsp) { 
+    this.RANDOM_SP = randomsp;
+    if (this.players[0] != undefined)
+      this.players[0].emit('Info_SetRandomSp', this.RANDOM_SP);
+    if (this.players[1] != undefined)
+      this.players[1].emit('Info_SetRandomSp', this.RANDOM_SP);
   }
 
   GetPlayerIndexBySocket(socket) {
@@ -698,6 +707,16 @@ io.on('connection', function(socket) {
 	    p[1].pack = pack;
 	    p[0].emit('Info_SetPack', pack);
 	    p[1].emit('Info_SetPack', pack);
+	  }
+	});
+
+  socket.on('Info_SetRandomSp', (randomsp) => {
+	  var p = g_playermatcher.FindPairByPlayer(socket);
+	  if (p != null) {
+	    p[0].RANDOM_SP = randomsp;
+	    p[1].RANDOM_SP = randomsp;
+	    p[0].emit('Info_SetRandomSp', randomsp);
+	    p[1].emit('Info_SetRandomSp', randomsp);
 	  }
 	});
 

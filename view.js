@@ -624,7 +624,7 @@ class View {
     maindiv.style.top = (WINH - MAINH)/2;
     maindiv.style.left = (WINW - MAINW)/2;
 
-    CARDW = MAINW *0.75*(1-2*0.028) / (9 * (1 - HAND_CARD_OVERLAP) + 1);
+    CARDW = MAINW *0.7*(1-2*0.028) / (9 * (1 - HAND_CARD_OVERLAP) + 1);
     var maxCardH = MAINH * 0.88 * 12/23;
     CARDH = CARDW / CARD_RATIO;
     if (CARDH > maxCardH) {
@@ -658,7 +658,7 @@ function TearDownExistingViews() {
 
 var sound, combos, model, controller, spmanager, messenger, view, oppoinfo, playerinfo, obtainVector;
 var avatar;
-var AI_LEVEL, COMBO_VOICE, SP_CARDS;
+var AI_LEVEL, COMBO_VOICE, SP_CARDS, RANDOM_SP;
 function setup(){
   sound = new Sound();
   combos = new Combos();
@@ -672,10 +672,10 @@ function setup(){
   oppoinfo = new TableInfoView(model.player0);
   playerinfo = new TableInfoView(model.player1);
   model.player1.avatar = avatar;
-  var defaults = ["p12", "voiceon", "ai2", "sp1"];
+  var defaults = ["p12", "voiceon", "ai2", "sp1", "randomspoff"];
   var configs = getCookie("configurations");
   if(configs.length == 0) configs = defaults;
-  for(var i = 0; i < configs.length; i++)
+  for(var i = 0; i < configs.length - 1; i++)
     document.getElementById(configs[i]).checked = true;
   showPage("configurator");
   document.getElementById("comfirmSetting").addEventListener("click", controller.configure);

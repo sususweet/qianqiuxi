@@ -9,11 +9,15 @@ class SPManager{
   constructor(){}
   setup(){
     this.specialRepoIDs = SPECIAL_CHAR_LIST[model.pack[0]-1].concat(SPECIAL_CHAR_LIST[model.pack[1]-1]);
-    this.userSpecialRepoIDs = this.loadSpecials("qqxspecials");
-    if(this.userSpecialRepoIDs.length > 0)
-      model.player1.specialIDs = this.loadSpecials("qqxspecialpicks");
-    else
-      this.userSpecialRepoIDs.push(this.specialRepoIDs[getRandom(this.specialRepoIDs.length)]);
+    if (RANDOM_SP == "randomspoff") {
+      this.userSpecialRepoIDs = this.loadSpecials("qqxspecials");
+      if(this.userSpecialRepoIDs.length > 0)
+        model.player1.specialIDs = this.loadSpecials("qqxspecialpicks");
+      else
+        this.userSpecialRepoIDs.push(this.specialRepoIDs[getRandom(this.specialRepoIDs.length)]);
+    } else {
+      this.userSpecialRepoIDs = this.getRandomSpecials();
+    }
     //this.userSpecialRepoIDs = this.specialRepoIDs;
     this.userSpecialRepository = new SpecialRepository();
     this.userSpecialRepository.init(this.userSpecialRepoIDs);
@@ -304,6 +308,11 @@ class SPManager{
       var aisizes = [0, Math.floor(model.player1.specialIDs.length/2), model.player1.specialIDs.length, MAX_SP_NUM];
       model.player0.specialIDs = this.getRandomSubarray(this.specialRepoIDs, aisizes[SP_CARDS]);
   }
+  getRandomSpecials(){
+      // var aisizes = [0, Math.floor(model.player1.specialIDs.length/2), model.player1.specialIDs.length, MAX_SP_NUM];
+      var aisize = 15;
+      return this.getRandomSubarray(this.specialRepoIDs, aisize);
+  }
   getRandomSubarray(arr, len){
     if(len <= 0)
       return [];
@@ -327,8 +336,10 @@ class SPManager{
   }
   saveSpecials(type, carray){
     if(type == null){
-      this.saveSpecials("qqxspecials",this.userSpecialRepoIDs);
-      this.saveSpecials("qqxspecialpicks", model.player1.specialIDs);
+      if (RANDOM_SP == "randomspoff") {
+        this.saveSpecials("qqxspecials",this.userSpecialRepoIDs);
+        this.saveSpecials("qqxspecialpicks", model.player1.specialIDs);
+      }
       return;
     }
     var arrs = [[],[]];
@@ -348,7 +359,7 @@ class SPManager{
   }
   awardSpecials(){
     var minscore = BONUS_THRESHOLDS[AI_LEVEL-1] + (model.player1.specialIDs.length - model.player0.specialIDs.length) * 5;
-    minscore = minscore>200? 200: minscore;
+    minscore = minscore>150 ? 150: minscore;
     if(model.player1.score >= minscore){
       var uspecials = this.userSpecialRepoIDs;
       var ulen = uspecials.length;

@@ -242,6 +242,13 @@ function ConnectToServer(is_reconnect = false) {
     }
   });
 
+  socket.on('Info_SetRandomSp', function(randomsp) {
+    if (randomsp != '') {
+      model.SetRandomSp(randomsp);
+      document.getElementById(randomsp).checked = true;
+    }
+  });
+
   socket.on('Match_ReadyToMatchAck', function() {
     document.getElementById("start_match").style.display = "none";
     document.getElementById("confirm_match").style.display = "none";
@@ -900,5 +907,11 @@ function RestoreSnapshotButtonClicked(choice = no) {
 function SetPack(p) {
   if (is_multiplayer && (socket != undefined)) {
     socket.emit('Info_SetPack', p);
+  }
+}
+
+function SetRandomSp(p) {
+  if (is_multiplayer && (socket != undefined)) {
+    socket.emit('Info_SetRandomSp', p);
   }
 }

@@ -822,6 +822,9 @@ class Model {
   setPack(p1 ,p2){
     this.pack = [p1, p2];
   }
+  SetRandomSp(randomsp){
+    this.RANDOM_SP = randomsp;
+  }
   init(){
     model.commonRepository.init(this.pack);
     var TEST = false;

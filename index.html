@@ -39,12 +39,20 @@
 			<label for="p23" data-value="2+3 代人物">2+3</label>
 		</div>
 
-		<div id="voiceinput" class="segmented-control" style="width: 100%; color: #281B11">
+		<div id="voiceinput" class="segmented-control" style="width: 50%; color: #281B11">
 			<input type="radio" name="voice" id="voiceon">
 			<input type="radio" name="voice" id="voiceoff">
 			<label for="voiceon" data-value="完成组合时播放语音">语音</label>
 			<label for="voiceoff" data-value="完成组合时BlueBlue">无语音</label>
 		</div>
+
+		<div id="randomspinput" class="segmented-control" style="width: 50%; color: #281B11">
+			<input type="radio" name="randomsp" id="randomspon" onclick="SetRandomSp('randomspon');">
+			<input type="radio" name="randomsp" id="randomspoff" onclick="SetRandomSp('randomspoff');">
+			<label for="randomspon" data-value="系统随机发放特殊牌">随机特殊牌</label>
+			<label for="randomspoff" data-value="使用自己拥有的特殊牌">自带特殊牌</label>
+		</div>
+
 		<div id="aiinput" class="segmented-control" style="width: 100%; color: #281B11">
 			<input type="radio" name="ai" id="ai1">
 			<input type="radio" name="ai" id="ai2">
@@ -494,7 +502,7 @@
 </html>
 <script type="text/javascript">
   var g_server_url = 'https://qianqiuxi.sususweet.ltd';
-  var my_server_url = 'https://quadpixels.github.io';
+  var my_server_url = 'http://localhost:3000';
 </script>
 <!--<script src="http://edgeofmap.com/qqxupd/1000autumns.js"></script>-->
 

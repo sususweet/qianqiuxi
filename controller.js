@@ -337,9 +337,13 @@ class Controller{
     var ai = getInput("aiinput");
     AI_LEVEL = parseInt(ai.charAt(2));
     COMBO_VOICE = getInput("voiceinput");
+    RANDOM_SP = getInput("randomspinput");
+    if (!is_multiplayer) { // 多人模式下由服务器当时的状态决定
+      model.SetRandomSp(RANDOM_SP);
+    }
     var sp = getInput("spinput");
     SP_CARDS = parseInt(sp.charAt(2));
-    setCookie("configurations", [pack, ai, COMBO_VOICE, sp]);
+    setCookie("configurations", [pack, ai, COMBO_VOICE, sp, RANDOM_SP]);
     spmanager.setup();
     controller.gameinit();
   }
